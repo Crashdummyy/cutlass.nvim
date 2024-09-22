@@ -191,6 +191,8 @@ local get_or_init_client = function()
 	local already_has_attached_client = vim.lsp.get_clients({ name = "cutlass" })
 	-- debug.log_message("Already attached client" .. vim.inspect(already_has_attached_client))
 
+
+
 	local config = get_config(bufname)
 	buf_registry.register(bufnr, bufname, config.root_dir, proj_handlers.handlers)
 
@@ -200,6 +202,11 @@ local get_or_init_client = function()
 	end
 
 	local client_id = vim.lsp.start_client(config)
+
+  local util = require("cutlass.util")
+	local refound_client = vim.lsp.get_clients({ name = "cutlass" })
+	util.monkeyPatchSemanticTokens(refound_client[1])
+
 	return client_id
 end
 
