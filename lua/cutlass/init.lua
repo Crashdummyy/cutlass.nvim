@@ -80,7 +80,7 @@ end
 local default_config = {
 	log_level = "trace",
 	-- the wrapper redirects the custom compiled rzls with stderr jsonrpc output to a log file
-	rzls_path = "/Users/reesepollard/projects/neovim/plugins/cutlass.nvim/debug/rzls_wrapper.sh",
+	rzls_path = "/home/crashdummy/coding/github/cutlass.nvim/debug/rzls_wrapper.sh",
 }
 
 local setup = function(user_config)
